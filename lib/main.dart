@@ -17,6 +17,16 @@ void main() {
           Container(decoration: const BoxDecoration(color: Colors.greenAccent,),         
             child: const Text("Three"),
           ),
-        ],
+          Column(
+          children: const [
+            SizedBox(
+              width: double.infinity,
+              height: 50,
+            ),
+            Text( "Marc Vega Gironell 23 - 24",style: TextStyle(fontSize: 40, fontWeight: FontWeight.bold),
+            ),
+          ],
+          ), 
+        ],    
   ))));
 }
