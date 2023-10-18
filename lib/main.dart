@@ -30,38 +30,28 @@ class _MyCustomFormState extends State<MyCustomForm> {
     super.dispose();
   }
 
- @override
+   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Scaffold(
-        appBar: AppBar(
-          title: const Text('Recuperar el valor de un campo de texto'),
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Recuperar el valor de un campo de texto'),
+      ),
+      body: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: TextField(
+          controller: myController,
         ),
-        body: Padding(
-          padding: const EdgeInsets.all(16.0),
-          child: TextField(
-            controller: myController,
-          ),
-        ),
-        floatingActionButton: FloatingActionButton(
-          onPressed: () {
-            showDialog(
-              context: context,
-              builder: (BuildContext context) {
-                return SimpleDialog(
-                  title: const Text('Simple Dialog'),
-                  children: <Widget>[
-                    Padding(
-                      padding: const EdgeInsets.all(16.0),
-                      child: Text(myController.text), // Muestra el texto introducido
-                    ),
-                  ],
-                );
-              },
-            );
-          },
-          child: const Text('Alerta'),
-        ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(
+              content: Text(myController.text), // Muestra el texto introducido
+              duration: Duration(seconds: 4),
+            ),
+          );
+        },
+        child: const Text('SnackBar'),
       ),
     );
   }
