@@ -48,15 +48,12 @@ class _MyCustomFormState extends State<MyCustomForm> {
             showDialog(
               context: context,
               builder: (BuildContext context) {
-                return AlertDialog(
-                  title: const Text('Alert dialog'),
-                  content: Text(myController.text), // Muestra el texto introducido
-                  actions: [
-                    TextButton(
-                      onPressed: () {
-                        Navigator.of(context).pop();
-                      },
-                      child: const Text('OK'),
+                return SimpleDialog(
+                  title: const Text('Simple Dialog'),
+                  children: <Widget>[
+                    Padding(
+                      padding: const EdgeInsets.all(16.0),
+                      child: Text(myController.text), // Muestra el texto introducido
                     ),
                   ],
                 );
@@ -67,5 +64,5 @@ class _MyCustomFormState extends State<MyCustomForm> {
         ),
       ),
     );
- }
+  }
 }
