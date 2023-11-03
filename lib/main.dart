@@ -1,12 +1,10 @@
-import 'package:hello_world/sources/marc_form.dart';
-
+import 'sources/crearForms.dart';
 import 'sources/conditional_fields.dart';
 import 'sources/dynamic_fields.dart';
 import 'sources/related_fields.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:form_builder_validators/form_builder_validators.dart';
-
 import 'code_page.dart';
 import 'sources/complete_form.dart';
 import 'sources/custom_fields.dart';
@@ -60,6 +58,23 @@ class _HomePage extends StatelessWidget {
           ),
           const Divider(),
           ListTile(
+            title: const Text('Creaciones Form'), // Título para Creaciones Form
+            trailing: const Icon(Icons.arrow_right_sharp),
+            onTap: () {
+              Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (context) {
+                    return const CodePage(
+                      title: 'Creaciones Form',
+                      child: CreacionesForm(), // Instancia de CreacionesForm
+                    );
+                  },
+                ),
+              );
+            },
+          ),
+          const Divider(),
+          ListTile(
             title: const Text('Custom Fields'),
             trailing: const Icon(Icons.arrow_right_sharp),
             onTap: () {
@@ -75,23 +90,7 @@ class _HomePage extends StatelessWidget {
               );
             },
           ),
-             const Divider(),
-          ListTile(
-            title: const Text('Marc Form'),
-            trailing: const Icon(Icons.arrow_right_sharp),
-            onTap: () {
-              Navigator.of(context).push(
-                MaterialPageRoute(
-                  builder: (context) {
-                    return const CodePage(
-                      title: 'Marc Form',
-                      child: NewForm(),
-                    );
-                  },
-                ),
-              );
-            },
-          ),
+        
           const Divider(),
           ListTile(
             title: const Text('Signup Form'),
